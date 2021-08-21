@@ -84,6 +84,7 @@ function calculateTotalPrice() { // add all prices and set it to total price UI 
     let deliveryPrice = parseInt(deliveryCharge.innerText);
     let total = basePrice + extraMemoryPrice + extraStoragePrice + deliveryPrice;
     totalPrice.innerText = total;
+    grandTotal.innerText = total;
 }
 
 function handlePromoCode() {
