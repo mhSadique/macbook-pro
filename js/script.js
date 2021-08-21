@@ -72,14 +72,14 @@ promoApplyBtn.addEventListener('click', () => {
     handlePromoCode();
 });
 
-function modifyPrice(partBasePrice, partExtraPrice, extraPriceOutput) {
-    let basePrice = partBasePrice;
-    basePrice += partExtraPrice;
-    extraPriceOutput.innerText = basePrice;
-    calculateTotalPrice();
+function modifyPrice(partBasePrice, partExtraPrice, extraPriceOutput) { // update all prices
+    let basePrice = partBasePrice; // set the price to base price
+    basePrice += partExtraPrice; // now add the extra price to the base price
+    extraPriceOutput.innerText = basePrice; // set the updated price to individual UI field
+    calculateTotalPrice(); // calculate total price
 }
 
-function calculateTotalPrice() {
+function calculateTotalPrice() { // add all prices and set it to total price UI field
     let basePrice = parseInt(computerBasePrice.innerText);
     let extraMemoryPrice = parseInt(memoryExtraCharge.innerText);
     let extraStoragePrice = parseInt(storageExtraCharge.innerText);
@@ -89,17 +89,19 @@ function calculateTotalPrice() {
 }
 
 function handlePromoCode() {
-    if (promoCodeField.value === promoCode) {
+    if (promoCodeField.value.toLocaleLowerCase() === promoCode) {
         const totalPri = totalPrice.innerText;
-        const discount = (parseInt(totalPrice.innerText) * promoCodeDiscount) / 100
-        const discountedAmount = totalPri - discount;
-        grandTotal.innerText = discountedAmount;
+        const discount = (parseInt(totalPrice.innerText) * promoCodeDiscount) / 100 // calculate discount
+        const discountedAmount = totalPri - discount; // the price after discount in applied
+        grandTotal.innerText = discountedAmount; // set the new price to grand total UI field
+
+        // show message when promo code apply
         promoCodeField.value = '';
         const p = document.createElement('p');
-        p.innerHTML = '<b>You got a discount</b>';
+        p.innerHTML = '<b>Congrats! You got a discount!</b>';
         p.classList.add('success');
         footer.prepend(p);
-    } else {
+    } else { // show message when promo code do not apply
         promoCodeField.value = '';
         const p = document.createElement('p');
         p.innerHTML = '<b>Your promocode is not valid.</b>';
