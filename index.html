@@ -21,61 +21,62 @@
                 Keyboard - US English</p>
             <h2 class="config-heading">Memory</h2>
             <div class="config-info">
-                <button>8GB unified memory</button>
-                <button>16GB unified memory</button>
+                <button id="memory-8">8GB unified memory</button>
+                <button id="memory-16">16GB unified memory</button>
             </div>
             <h2 class="config-heading">Storage</h2>
             <div class="config-info">
-                <button>256GB SSD storage</button>
-                <button>512GB SSD storage</button>
-                <button>1TB SSD storage</button>
+                <button id="storage-256">256GB SSD storage</button>
+                <button id="storage-512">512GB SSD storage</button>
+                <button id="storage-1tb">1TB SSD storage</button>
             </div>
             <h2 class="config-heading">Choose your delivery option</h2>
             <div class="config-info">
-                <button>Friday, Aug 25 FREE Prime Delivery</button>
-                <button>Friday, Aug 21 Delivery Charge $20</button>
+                <button id="free-delivery">Friday, Aug 25 FREE Prime Delivery</button>
+                <button id="quick-delivery">Friday, Aug 21 Delivery Charge $20</button>
             </div>
             <div class="info-container">
                 <div class="price-info">
                     <h3>Best Price</h3>
-                    <h3>$<span>1299</span></h3>
+                    <h3>$<span id="base-price">1299</span></h3>
                 </div>
                 <hr>
                 <div class="price-info">
                     <h3>Extra Memory Cost</h3>
-                    <h3>$<span>0</span></h3>
+                    <h3>$<span id="memory-extra">0</span></h3>
                 </div>
                 <hr>
                 <div class="price-info">
                     <h3>Extra Storage Cost</h3>
-                    <h3>$<span>0</span></h3>
+                    <h3>$<span  id="storage-extra">0</span></h3>
                 </div>
                 <hr>
                 <div class="price-info">
                     <h3>Delivery Charge</h3>
-                    <h3>$<span>0</span></h3>
+                    <h3>$<span id="delivery-charge">0</span></h3>
                 </div>
                 <hr>
                 <div class="price-info">
                     <h3>Total Price</h3>
-                    <h3>$<span>1299</span></h3>
+                    <h3>$<span id="total-price">1299</span></h3>
                 </div>
                 <hr class="total">
             </div>
             <div>
-                <label for="promo">Add Promo Code</label>
+                <label for="promo-code">Add Promo Code</label>
                 <br>
                 <div class="promo-input">
-                    <input type="text" id="promo">
-                    <input type="button" value="Apply">
+                    <input type="text" id="promo-code">
+                    <input type="button" value="Apply" id="promo-button">
                 </div>
             </div>
         </div>
     </main>
     <hr class="below-main">
     <footer>
-        <h4>Total: $<span>1299</span></h4>
+        <h4>Total: $<span id="grand-total">1299</span></h4>
     </footer>
+    <script src="js/script.js"></script>
 </body>
 
 </html>

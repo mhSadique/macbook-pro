@@ -60,7 +60,8 @@ button {
 }
 
 button:hover {
-    background-color: rgb(216, 209, 209);
+    background-color: rgb(73, 71, 71);
+    color: #fff;
 }
 
 .info-container {
