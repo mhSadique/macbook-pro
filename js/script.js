@@ -68,9 +68,7 @@ quickDeliveryBtn.addEventListener('click', () => {
     modifyPrice(baseDeliveryCharge, quickDeliveryCharge, deliveryCharge);
 });
 
-promoApplyBtn.addEventListener('click', () => {
-    handlePromoCode();
-});
+promoApplyBtn.addEventListener('click', handlePromoCode);
 
 function modifyPrice(partBasePrice, partExtraPrice, extraPriceOutput) { // update all prices
     let basePrice = partBasePrice; // set the price to base price
