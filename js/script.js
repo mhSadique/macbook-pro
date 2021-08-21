@@ -19,7 +19,7 @@ const freeDeliveryBtn = document.getElementById('free-delivery');
 const quickDeliveryBtn = document.getElementById('quick-delivery');
 const baseDeliveryCharge = 0;
 const freeDeliveryCharge = 0;
-const quickDeliveryCharge = 25;
+const quickDeliveryCharge = 20;
 
 // Price Calculation
 const computerBasePrice = document.getElementById('base-price');
