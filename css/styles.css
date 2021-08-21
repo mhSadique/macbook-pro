@@ -60,7 +60,7 @@ button {
 }
 
 button:hover {
-    background-color: rgb(73, 71, 71);
+    background-color: rgb(0, 0, 0);
     color: #fff;
 }
 
@@ -118,8 +118,33 @@ hr.below-main {
     margin: 0 auto;
 }
 
+footer {
+    text-align: center;
+}
+
 footer h4 {
     font-size: 4rem;
-    text-align: center;
     margin-top: 1rem;
+}
+
+.alert {
+    margin-top: 1rem;
+    width: 40%;
+    margin: 0 auto;
+    border-radius: 10px;
+    font-size: 2rem;
+    padding: 1rem 2rem;
+    color: orangered;
+    background-color: rgb(250, 187, 187);
+}
+
+.success {
+    margin-top: 1rem;
+    width: 40%;
+    margin: 0 auto;
+    border-radius: 10px;
+    font-size: 2rem;
+    padding: 1rem 2rem;
+    color: rgb(0, 255, 0);
+    background-color: rgba(107, 100, 100, 0.767);
 }

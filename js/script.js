@@ -1,4 +1,3 @@
-// const computerBasePrice = 1299
 // Memory
 const memory8GbBtn = document.getElementById('memory-8');
 const memory16GbBtn = document.getElementById('memory-16');
@@ -20,7 +19,7 @@ const freeDeliveryBtn = document.getElementById('free-delivery');
 const quickDeliveryBtn = document.getElementById('quick-delivery');
 const baseDeliveryCharge = 0;
 const freeDeliveryCharge = 0;
-const quickDeliveryCharge = 20;
+const quickDeliveryCharge = 25;
 
 // Price Calculation
 const computerBasePrice = document.getElementById('base-price');
@@ -32,11 +31,14 @@ const totalPrice = document.getElementById('total-price');
 // Promo
 const promoCodeField = document.getElementById('promo-code');
 const promoApplyBtn = document.getElementById('promo-button');
-const promoCodeDiscount = 20;
+const promoCodeDiscount = 30;
+const promoCode = 'stevekaku';
 
 // Grand Total
 const grandTotal = document.getElementById("grand-total");
 
+// Footer
+const footer = document.querySelector('footer');
 // Event Listeners
 memory16GbBtn.addEventListener('click', () => {
     modifyPrice(memoryBasePrice, memory16GbAdditionalPrice, memoryExtraCharge);
@@ -66,20 +68,42 @@ quickDeliveryBtn.addEventListener('click', () => {
     modifyPrice(baseDeliveryCharge, quickDeliveryCharge, deliveryCharge);
 });
 
+promoApplyBtn.addEventListener('click', () => {
+    handlePromoCode();
+});
 
-
-function modifyPrice(partBasePrice, partExtraPrice, extraPriceOutput) { 
-   let basePrice = partBasePrice;
-   basePrice += partExtraPrice;
-   extraPriceOutput.innerText = basePrice;
-   calculateTotalPrice();
+function modifyPrice(partBasePrice, partExtraPrice, extraPriceOutput) {
+    let basePrice = partBasePrice;
+    basePrice += partExtraPrice;
+    extraPriceOutput.innerText = basePrice;
+    calculateTotalPrice();
 }
 
 function calculateTotalPrice() {
-   let basePrice = parseInt(computerBasePrice.innerText); 
-   let extraMemoryPrice = parseInt(memoryExtraCharge.innerText);
-   let extraStoragePrice = parseInt(storageExtraCharge.innerText);
-   let deliveryPrice = parseInt(deliveryCharge.innerText);
-   let total = basePrice + extraMemoryPrice + extraStoragePrice + deliveryPrice;
-   totalPrice.innerText = total;
+    let basePrice = parseInt(computerBasePrice.innerText);
+    let extraMemoryPrice = parseInt(memoryExtraCharge.innerText);
+    let extraStoragePrice = parseInt(storageExtraCharge.innerText);
+    let deliveryPrice = parseInt(deliveryCharge.innerText);
+    let total = basePrice + extraMemoryPrice + extraStoragePrice + deliveryPrice;
+    totalPrice.innerText = total;
+}
+
+function handlePromoCode() {
+    if (promoCodeField.value === promoCode) {
+        const totalPri = totalPrice.innerText;
+        const discount = (parseInt(totalPrice.innerText) * promoCodeDiscount) / 100
+        const discountedAmount = totalPri - discount;
+        grandTotal.innerText = discountedAmount;
+        promoCodeField.value = '';
+        const p = document.createElement('p');
+        p.innerHTML = '<b>You got a discount</b>';
+        p.classList.add('success');
+        footer.prepend(p);
+    } else {
+        promoCodeField.value = '';
+        const p = document.createElement('p');
+        p.innerHTML = '<b>Your promocode is not valid.</b>';
+        p.classList.add('alert');
+        footer.prepend(p);
+    }
 }
